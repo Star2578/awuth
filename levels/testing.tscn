@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0r0uxiuw2yi4"]
+
+[ext_resource type="PackedScene" uid="uid://cmoamijjq68qc" path="res://objects/sword.tscn" id="1_mbb02"]
+[ext_resource type="Texture2D" uid="uid://dbo5onnwxbtx7" path="res://icon.svg" id="2_84hk6"]
+[ext_resource type="PackedScene" uid="uid://7kvwug2jd0kf" path="res://objects/box.tscn" id="3_43r1b"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kd1y2"]
+
+[node name="Testing" type="Node2D"]
+
+[node name="Box" parent="." instance=ExtResource("3_43r1b")]
+position = Vector2(461, 533)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(559, 599)
+scale = Vector2(1, 0.36)
+
+[node name="Floor" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 66.6667)
+scale = Vector2(9.96, 1)
+texture = ExtResource("2_84hk6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_kd1y2")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_mbb02")]
+position = Vector2(490, 251)
