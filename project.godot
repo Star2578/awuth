@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="AWUTH"
-run/main_scene="res://levels/testing.tscn"
+run/main_scene="res://menus/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [rendering]
 

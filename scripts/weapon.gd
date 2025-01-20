@@ -43,4 +43,4 @@ func _on_collision_with_ground(body):
 		last_touch_point = rotation1
 	else:
 		last_touch_point = rotation2
-	print("Last touched: ", last_touch_point)
+	#print("Last touched: ", last_touch_point)
