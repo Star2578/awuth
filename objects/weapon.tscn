@@ -3,26 +3,19 @@
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_qnybf"]
 [ext_resource type="Texture2D" uid="uid://chpcpj2psmqrj" path="res://sprites/bone.png" id="2_y50x4"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e7shi"]
-radius = 15.0
-height = 178.08
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqgu7"]
 radius = 30.0
 
-[node name="Sword" type="RigidBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gblk"]
+radius = 20.0
+
+[node name="Weapon" type="RigidBody2D"]
 script = ExtResource("1_qnybf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0.04, 0)
+position = Vector2(91, 0)
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_y50x4")
-offset = Vector2(568.75, 0)
-
-[node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(91.04, 0)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_e7shi")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -33,5 +26,13 @@ shape = SubResource("CircleShape2D_xqgu7")
 [node name="Rotation2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(166, -1)
 shape = SubResource("CircleShape2D_xqgu7")
+
+[node name="Top" type="CollisionShape2D" parent="."]
+position = Vector2(18, 0)
+shape = SubResource("CircleShape2D_4gblk")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+position = Vector2(166, 0)
+shape = SubResource("CircleShape2D_4gblk")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_collision_with_ground"]
