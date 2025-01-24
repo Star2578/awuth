@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmoamijjq68qc"]
+[gd_scene load_steps=9 format=3 uid="uid://cmoamijjq68qc"]
 
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_qnybf"]
 [ext_resource type="Texture2D" uid="uid://djqv62h28m108" path="res://sprites/sheet_v2.png" id="2_icrla"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_84hhg"]
+rough = true
+absorbent = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1clk"]
 atlas = ExtResource("2_icrla")
@@ -12,9 +14,15 @@ region = Rect2(48, 0, 16, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqgu7"]
 radius = 30.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4gblk"]
-custom_solver_bias = 0.44
-radius = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_6lqw3"]
+radius = 15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v532y"]
+radius = 12.0
+height = 182.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxtde"]
+radius = 15.0
 
 [node name="Weapon" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_84hhg")
@@ -29,19 +37,25 @@ texture = SubResource("AtlasTexture_t1clk")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Rotation1" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(18, 0)
 shape = SubResource("CircleShape2D_xqgu7")
 
 [node name="Rotation2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(166, -1)
+position = Vector2(177, 0)
 shape = SubResource("CircleShape2D_xqgu7")
 
 [node name="Top" type="CollisionShape2D" parent="."]
-position = Vector2(18, 0)
-shape = SubResource("CircleShape2D_4gblk")
+position = Vector2(3, -1)
+shape = SubResource("CircleShape2D_6lqw3")
+disabled = true
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(84, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_v532y")
 
 [node name="Bottom" type="CollisionShape2D" parent="."]
-position = Vector2(166, 0)
-shape = SubResource("CircleShape2D_4gblk")
+position = Vector2(169, 0)
+shape = SubResource("CircleShape2D_gxtde")
+disabled = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_collision_with_ground"]
