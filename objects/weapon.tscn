@@ -1,21 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmoamijjq68qc"]
+[gd_scene load_steps=7 format=3 uid="uid://cmoamijjq68qc"]
 
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_qnybf"]
-[ext_resource type="Texture2D" uid="uid://chpcpj2psmqrj" path="res://sprites/bone.png" id="2_y50x4"]
+[ext_resource type="Texture2D" uid="uid://djqv62h28m108" path="res://sprites/sheet_v2.png" id="2_icrla"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_84hhg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1clk"]
+atlas = ExtResource("2_icrla")
+region = Rect2(48, 0, 16, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqgu7"]
 radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gblk"]
-radius = 20.0
+custom_solver_bias = 0.44
+radius = 16.0
 
 [node name="Weapon" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_84hhg")
 script = ExtResource("1_qnybf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(91, 0)
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_y50x4")
+rotation = 1.5708
+scale = Vector2(6, 6)
+texture = SubResource("AtlasTexture_t1clk")
 
 [node name="Area2D" type="Area2D" parent="."]
 
