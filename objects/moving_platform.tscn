@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://b553g36068tpm"]
+
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_ont5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_if4yu"]
+size = Vector2(40, 40)
+
+[sub_resource type="Animation" id="Animation_aejqt"]
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 5.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(256, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4m4tp"]
+resource_name = "horizontal_move"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(320, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6pope"]
+_data = {
+"RESET": SubResource("Animation_aejqt"),
+"horizontal_move": SubResource("Animation_4m4tp")
+}
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+scale = Vector2(4.8, 0.8)
+script = ExtResource("1_ont5u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0.552941, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_if4yu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6pope")
+}

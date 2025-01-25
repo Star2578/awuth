@@ -25,7 +25,10 @@ height = 182.0
 radius = 15.0
 
 [node name="Weapon" type="RigidBody2D"]
+position = Vector2(-91, 0)
+input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_84hhg")
+gravity_scale = 1.4
 script = ExtResource("1_qnybf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -58,4 +61,4 @@ position = Vector2(169, 0)
 shape = SubResource("CircleShape2D_gxtde")
 disabled = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_collision_with_ground"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_touch_ground"]
