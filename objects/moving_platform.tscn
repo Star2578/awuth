@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b553g36068tpm"]
+[gd_scene load_steps=8 format=3 uid="uid://b553g36068tpm"]
 
 [ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_ont5u"]
+[ext_resource type="Texture2D" uid="uid://djqv62h28m108" path="res://sprites/sheet_v2.png" id="2_og73b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7qrt"]
+atlas = ExtResource("2_og73b")
+region = Rect2(112, 160, 48, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_if4yu"]
-size = Vector2(40, 40)
+size = Vector2(52.2917, 40)
 
 [sub_resource type="Animation" id="Animation_aejqt"]
 length = 6.0
@@ -48,13 +53,19 @@ _data = {
 scale = Vector2(4.8, 0.8)
 script = ExtResource("1_ont5u")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20, 50)
+scale = Vector2(1.092, 6.5)
+texture = SubResource("AtlasTexture_p7qrt")
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 0.552941, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20, 20)
+position = Vector2(20, 17.5)
 shape = SubResource("RectangleShape2D_if4yu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

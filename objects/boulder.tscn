@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0c1jnpfekh10"]
+
+[ext_resource type="Texture2D" uid="uid://djqv62h28m108" path="res://sprites/sheet_v2.png" id="1_5fgxi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ksqhl"]
+rough = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5qld"]
+atlas = ExtResource("1_5fgxi")
+region = Rect2(160, 208, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktxks"]
+radius = 78.6384
+
+[node name="Boulder" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_ksqhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("AtlasTexture_r5qld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ktxks")
