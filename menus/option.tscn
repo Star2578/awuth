@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu0sbp554r2o5"]
+
+[ext_resource type="Texture2D" uid="uid://tt2wlsppnks6" path="res://sprites/v3.png" id="1_a8phf"]
+[ext_resource type="Script" path="res://scripts/option.gd" id="1_gcjdp"]
+[ext_resource type="StyleBox" uid="uid://dwqg6w744itvc" path="res://styles/button_style_1_hover.tres" id="2_p7cht"]
+[ext_resource type="StyleBox" uid="uid://ryyd3wuku443" path="res://styles/button_style_1_click.tres" id="3_krr0x"]
+[ext_resource type="StyleBox" uid="uid://d4isf5t6clo26" path="res://styles/button_style_1.tres" id="4_a06oi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrj1y"]
+atlas = ExtResource("1_a8phf")
+region = Rect2(48, 48, 48, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b6ttx"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Option" type="Control" parent="."]
+z_index = 99
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gcjdp")
+
+[node name="Panel" type="Panel" parent="Option"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Option"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_wrj1y")
+
+[node name="BGM" type="Control" parent="Option/TextureRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -83.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGM_Label" type="Label" parent="Option/TextureRect/BGM"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = -46.0
+offset_right = 254.0
+offset_bottom = -12.0
+text = "BGM Volume"
+label_settings = SubResource("LabelSettings_b6ttx")
+
+[node name="BGM_Slider" type="HSlider" parent="Option/TextureRect/BGM"]
+process_mode = 3
+layout_mode = 0
+offset_left = 104.0
+offset_right = 404.0
+offset_bottom = 16.0
+min_value = -24.0
+max_value = 24.0
+step = 0.01
+
+[node name="CheckBox" type="CheckBox" parent="Option/TextureRect/BGM"]
+process_mode = 3
+layout_mode = 0
+offset_left = 103.0
+offset_top = 39.0
+offset_right = 127.0
+offset_bottom = 63.0
+
+[node name="Mute_BGM_Label" type="Label" parent="Option/TextureRect/BGM/CheckBox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -17.0
+offset_right = 180.0
+offset_bottom = 17.0
+grow_vertical = 2
+text = "Mute BGM"
+label_settings = SubResource("LabelSettings_b6ttx")
+
+[node name="SFX" type="Control" parent="Option/TextureRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 61.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SFX_Label" type="Label" parent="Option/TextureRect/SFX"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = -46.0
+offset_right = 254.0
+offset_bottom = -12.0
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_b6ttx")
+
+[node name="SFX_Slider" type="HSlider" parent="Option/TextureRect/SFX"]
+process_mode = 3
+layout_mode = 0
+offset_left = 104.0
+offset_right = 404.0
+offset_bottom = 16.0
+min_value = -24.0
+max_value = 24.0
+step = 0.01
+
+[node name="CheckBox" type="CheckBox" parent="Option/TextureRect/SFX"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 39.0
+offset_right = 127.0
+offset_bottom = 63.0
+
+[node name="Mute_SFX_Label" type="Label" parent="Option/TextureRect/SFX/CheckBox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -17.0
+offset_right = 180.0
+offset_bottom = 17.0
+grow_vertical = 2
+text = "Mute SFX"
+label_settings = SubResource("LabelSettings_b6ttx")
+
+[node name="Close" type="Button" parent="Option/TextureRect"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -106.0
+offset_top = 43.0
+offset_right = -42.0
+offset_bottom = 75.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover_mirrored = ExtResource("2_p7cht")
+theme_override_styles/hover = ExtResource("2_p7cht")
+theme_override_styles/pressed_mirrored = ExtResource("3_krr0x")
+theme_override_styles/pressed = ExtResource("3_krr0x")
+theme_override_styles/normal_mirrored = ExtResource("4_a06oi")
+theme_override_styles/normal = ExtResource("4_a06oi")
+text = "Close"
+
+[connection signal="value_changed" from="Option/TextureRect/BGM/BGM_Slider" to="Option" method="_on_bgm_slider_value_changed"]
+[connection signal="toggled" from="Option/TextureRect/BGM/CheckBox" to="Option" method="_on_mute_bgm_check"]
+[connection signal="value_changed" from="Option/TextureRect/SFX/SFX_Slider" to="Option" method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="Option/TextureRect/SFX/CheckBox" to="Option" method="_on_mute_sfx_check"]
+[connection signal="pressed" from="Option/TextureRect/Close" to="Option" method="close"]

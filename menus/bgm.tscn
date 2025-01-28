@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://xhhvo0bttkti"]
+
+[ext_resource type="AudioStream" uid="uid://2ut0wk1i2wap" path="res://audios/Ducko - Upbeat.wav" id="1_31b7e"]
+[ext_resource type="Script" path="res://scripts/bgm.gd" id="2_k8d7c"]
+
+[node name="BGM" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_31b7e")
+autoplay = true
+script = ExtResource("2_k8d7c")

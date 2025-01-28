@@ -22,6 +22,5 @@ func _process(delta):
 	var delta_position = target_position - global_position
 	if abs(delta_position.x) > boundX or abs(delta_position.y) > boundY:
 		desired_position = target_position
-
 	smoothed_position = smoothed_position.lerp(desired_position, smoothing_speed * delta)
 	global_position = smoothed_position

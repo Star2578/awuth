@@ -4,9 +4,9 @@ var torque_strength: float = 1000.0  # Torque for spinning the weapon
 var max_angular_speed: float = 10.0  # Limit for angular velocity
 var damping: float = 0.9  # General damping for angular velocity
 var dash_force: float = 1000
-#var torque_direction = 1 # rotation pivot (1 or -1)
 
 var can_dash: bool = true
+var dash_preparing: bool = false
 var cannot_dash = "#00fff3" # Sprite modulate color while cannot dash
 
 var init_pos: Vector2
@@ -24,17 +24,18 @@ func _ready():
 	last_touch_point = rotation1
 
 func _process(delta):
-	# For debugging
-	#print(last_touch_point.name)
+	if (GameManager.is_paused):
+		return
+	
 	var mouse_pos = get_global_mouse_position()
 	var to_mouse = mouse_pos - last_touch_point.global_position
 	
 	
-	#reset position
+	# Reset position
 	if (Input.is_key_pressed(KEY_R)):
 		position = init_pos
 	
-	#dash
+	# Dash
 	if Input.is_action_just_pressed("dash") and can_dash:
 		print("prepare-dash")
 		sprite.modulate = "#ffffff"
@@ -50,10 +51,6 @@ func _process(delta):
 		
 	if (can_dash == false && Engine.time_scale != 1.0):
 		Engine.time_scale = 1.0
-	
-	# trigger once when LMB pressed down
-	#if (Input.is_action_just_pressed("ui_select")):
-		#change_torque_direction(mouse_pos)
 	
 	var angle_to_mouse = to_mouse.angle()
 	var angle_diff = wrapf(angle_to_mouse - rotation, -PI, PI)
