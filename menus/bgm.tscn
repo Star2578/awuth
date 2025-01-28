@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/bgm.gd" id="2_k8d7c"]
 
 [node name="BGM" type="AudioStreamPlayer2D"]
+process_mode = 3
 stream = ExtResource("1_31b7e")
 autoplay = true
 script = ExtResource("2_k8d7c")

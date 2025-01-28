@@ -1,11 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmoamijjq68qc"]
+[gd_scene load_steps=8 format=3 uid="uid://cmoamijjq68qc"]
 
 [ext_resource type="Script" path="res://scripts/weapon.gd" id="1_qnybf"]
 [ext_resource type="Texture2D" uid="uid://djqv62h28m108" path="res://sprites/sheet_v2.png" id="2_icrla"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_84hhg"]
-rough = true
-absorbent = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1clk"]
 atlas = ExtResource("2_icrla")
@@ -27,7 +23,10 @@ radius = 15.0
 [node name="Weapon" type="RigidBody2D"]
 position = Vector2(-91, 0)
 input_pickable = true
-physics_material_override = SubResource("PhysicsMaterial_84hhg")
+mass = 10.0
+gravity_scale = 3.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_qnybf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -63,4 +62,4 @@ position = Vector2(169, 0)
 shape = SubResource("CircleShape2D_gxtde")
 disabled = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_touch_ground"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

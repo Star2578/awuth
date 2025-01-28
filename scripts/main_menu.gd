@@ -8,7 +8,7 @@ func to_test_scene():
 	get_tree().change_scene_to_file("res://levels/building_level.tscn")
 
 func option():
-	GameManager.option_ui.reparent(get_tree().current_scene)
+	#GameManager.option_ui.reparent(get_tree().current_scene)
 	GameManager.toggle_option()
 
 func quit():

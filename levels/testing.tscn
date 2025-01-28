@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0r0uxiuw2yi4"]
+[gd_scene load_steps=6 format=3 uid="uid://b0r0uxiuw2yi4"]
 
 [ext_resource type="PackedScene" uid="uid://cmoamijjq68qc" path="res://objects/weapon.tscn" id="1_mbb02"]
 [ext_resource type="Texture2D" uid="uid://dbo5onnwxbtx7" path="res://icon.svg" id="2_84hk6"]
 [ext_resource type="PackedScene" uid="uid://7kvwug2jd0kf" path="res://objects/box.tscn" id="3_43r1b"]
+[ext_resource type="PackedScene" uid="uid://b553g36068tpm" path="res://objects/moving_platform.tscn" id="4_vc54i"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kd1y2"]
 
@@ -29,3 +30,5 @@ shape = SubResource("WorldBoundaryShape2D_kd1y2")
 
 [node name="Sword" parent="." instance=ExtResource("1_mbb02")]
 position = Vector2(490, 251)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("4_vc54i")]

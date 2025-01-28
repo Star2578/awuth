@@ -22,6 +22,7 @@ func _ready():
 func _process(delta):
 	if (Input.is_action_just_pressed("option")):
 		toggle_option()
+		
 
 func on_bgm_finished():
 	audio_player.play()
@@ -33,9 +34,10 @@ func toggle_option():
 		get_tree().current_scene.add_child(option_ui)
 		option_ui.visible = true
 	if (is_started):
+		print("dwadaw")
 		is_paused = !is_paused
 		if (is_paused):
-			Engine.time_scale = 0
+			get_tree().paused = true
 		else:
-			Engine.time_scale = 1
+			get_tree().paused = false
 	option_ui.visible = !option_ui.visible
