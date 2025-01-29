@@ -175,8 +175,37 @@ theme_override_styles/normal_mirrored = ExtResource("4_a06oi")
 theme_override_styles/normal = ExtResource("4_a06oi")
 text = "Close"
 
+[node name="Main" type="Button" parent="Option/TextureRect"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -86.0
+offset_right = 64.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover_mirrored = ExtResource("2_p7cht")
+theme_override_styles/hover = ExtResource("2_p7cht")
+theme_override_styles/pressed_mirrored = ExtResource("3_krr0x")
+theme_override_styles/pressed = ExtResource("3_krr0x")
+theme_override_styles/normal_mirrored = ExtResource("4_a06oi")
+theme_override_styles/normal = ExtResource("4_a06oi")
+text = "Mainmenu"
+
 [connection signal="value_changed" from="Option/TextureRect/BGM/BGM_Slider" to="Option" method="_on_bgm_slider_value_changed"]
 [connection signal="toggled" from="Option/TextureRect/BGM/CheckBox" to="Option" method="_on_mute_bgm_check"]
 [connection signal="value_changed" from="Option/TextureRect/SFX/SFX_Slider" to="Option" method="_on_sfx_slider_value_changed"]
 [connection signal="toggled" from="Option/TextureRect/SFX/CheckBox" to="Option" method="_on_mute_sfx_check"]
 [connection signal="pressed" from="Option/TextureRect/Close" to="Option" method="close"]
+[connection signal="pressed" from="Option/TextureRect/Main" to="Option" method="to_main_menu"]

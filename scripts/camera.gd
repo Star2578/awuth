@@ -14,6 +14,8 @@ func _ready():
 	smoothed_position = global_position
 
 func _process(delta):
+	$CanvasLayer2/Time.text = GameManager.get_formatted_time()
+	
 	if not target:
 		return
 
@@ -24,3 +26,15 @@ func _process(delta):
 		desired_position = target_position
 	smoothed_position = smoothed_position.lerp(desired_position, smoothing_speed * delta)
 	global_position = smoothed_position
+
+func to_main_menu():
+	GameManager.is_started = false
+	GameManager.is_paused = false
+	GameManager.time_counter = 0.0
+	get_tree().change_scene_to_file("res://menus/main_menu.tscn")
+
+func _game_finished(body):
+	print("YOU WIN!")
+	GameManager.is_started = false
+	$CanvasLayer3.visible = true
+	

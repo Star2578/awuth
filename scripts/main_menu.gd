@@ -3,8 +3,19 @@ extends Control
 func _ready():
 	$TextureRect/AnimationPlayer.play("bg")
 
-func to_test_scene():
+func press_start():
+	$Start.visible = false
+	$Easy.visible = true
+	$Hard.visible = true
+	
+func normal_start():
 	GameManager.is_started = true
+	GameManager.is_hard = false
+	get_tree().change_scene_to_file("res://levels/building_level.tscn")
+
+func speedrun_start():
+	GameManager.is_started = true
+	GameManager.is_hard = true
 	get_tree().change_scene_to_file("res://levels/building_level.tscn")
 
 func option():

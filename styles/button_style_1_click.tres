@@ -1,6 +1,9 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ryyd3wuku443"]
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://ryyd3wuku443"]
+
+[ext_resource type="Texture2D" uid="uid://tt2wlsppnks6" path="res://sprites/v3.png" id="1_5xvmp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_476mi"]
+atlas = ExtResource("1_5xvmp")
 region = Rect2(0, 80, 48, 16)
 
 [resource]

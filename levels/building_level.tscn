@@ -1,11 +1,20 @@
-[gd_scene load_steps=12 format=4 uid="uid://ce7td31ek6qhv"]
+[gd_scene load_steps=17 format=4 uid="uid://ce7td31ek6qhv"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_c3w3o"]
+[ext_resource type="StyleBox" uid="uid://dwqg6w744itvc" path="res://styles/button_style_1_hover.tres" id="2_8vbms"]
 [ext_resource type="PackedScene" uid="uid://xhhvo0bttkti" path="res://menus/bgm.tscn" id="2_fyk6h"]
 [ext_resource type="PackedScene" uid="uid://cmoamijjq68qc" path="res://objects/weapon.tscn" id="2_iphoi"]
+[ext_resource type="StyleBox" uid="uid://ryyd3wuku443" path="res://styles/button_style_1_click.tres" id="3_fj72b"]
 [ext_resource type="Texture2D" uid="uid://64awhf3sfn5y" path="res://sprites/sheet_v1.png" id="3_r0in7"]
+[ext_resource type="StyleBox" uid="uid://d4isf5t6clo26" path="res://styles/button_style_1.tres" id="4_1wsoh"]
 [ext_resource type="Texture2D" uid="uid://djqv62h28m108" path="res://sprites/sheet_v2.png" id="4_v8snr"]
 [ext_resource type="PackedScene" uid="uid://b0c1jnpfekh10" path="res://objects/boulder.tscn" id="5_041by"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1iguo"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_sticn"]
+font_size = 56
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j6qro"]
 texture = ExtResource("3_r0in7")
@@ -270,11 +279,11 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_j6qro")
 sources/1 = SubResource("TileSetAtlasSource_kchi0")
 
-[sub_resource type="LabelSettings" id="LabelSettings_dn07c"]
-font_size = 48
-
 [sub_resource type="LabelSettings" id="LabelSettings_tm84i"]
 font_size = 48
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p7qf"]
+size = Vector2(1428, 524)
 
 [node name="Game" type="Node2D"]
 
@@ -295,6 +304,71 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0352941, 0.0705882, 0.172549, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Time" type="Label" parent="Camera2D/CanvasLayer2"]
+z_index = 12
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 34.0
+grow_horizontal = 0
+text = "3.45"
+label_settings = SubResource("LabelSettings_1iguo")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="Camera2D"]
+visible = false
+
+[node name="Panel" type="Panel" parent="Camera2D/CanvasLayer3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -175.0
+offset_right = 294.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you for playing!"
+label_settings = SubResource("LabelSettings_sticn")
+
+[node name="Button" type="Button" parent="Camera2D/CanvasLayer3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 38.0
+offset_right = 128.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover_mirrored = ExtResource("2_8vbms")
+theme_override_styles/hover = ExtResource("2_8vbms")
+theme_override_styles/pressed_mirrored = ExtResource("3_fj72b")
+theme_override_styles/pressed = ExtResource("3_fj72b")
+theme_override_styles/normal_mirrored = ExtResource("4_1wsoh")
+theme_override_styles/normal = ExtResource("4_1wsoh")
+text = "Main menu"
 
 [node name="BGM" parent="Camera2D" instance=ExtResource("2_fyk6h")]
 
@@ -325,14 +399,6 @@ scale = Vector2(2.35, 2.35)
 [node name="Boulder5" parent="." instance=ExtResource("5_041by")]
 position = Vector2(4181, -10316)
 scale = Vector2(2.35, 2.35)
-
-[node name="Label" type="Label" parent="."]
-offset_left = -844.0
-offset_top = -14266.0
-offset_right = -330.0
-offset_bottom = -14199.0
-text = "Thank you for playing!"
-label_settings = SubResource("LabelSettings_dn07c")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 2377.0
@@ -437,3 +503,13 @@ offset_bottom = -11077.0
 rotation = -1.66679
 text = "------------->"
 label_settings = SubResource("LabelSettings_tm84i")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-371, -14219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(48, 28)
+shape = SubResource("RectangleShape2D_8p7qf")
+
+[connection signal="pressed" from="Camera2D/CanvasLayer3/Button" to="Camera2D" method="to_main_menu"]
+[connection signal="body_entered" from="Area2D" to="Camera2D" method="_game_finished"]

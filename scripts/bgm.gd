@@ -1,5 +1,8 @@
 extends AudioStreamPlayer2D
 
 
-func _ready():
-	volume_db = GameManager.bgm_vol
+func _process(delta):
+	if (GameManager.bgm_muted):
+		volume_db = -80
+	else:
+		volume_db = GameManager.bgm_vol

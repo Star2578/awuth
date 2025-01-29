@@ -34,5 +34,12 @@ func _on_mute_bgm_check(checked):
 func _on_mute_sfx_check(checked):
 	GameManager.sfx_muted = checked
 
+func to_main_menu():
+	GameManager.is_started = false
+	GameManager.is_paused = false
+	GameManager.time_counter = 0.0
+	GameManager.toggle_option()
+	get_tree().change_scene_to_file("res://menus/main_menu.tscn")
+
 func close():
 	GameManager.toggle_option()

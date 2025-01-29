@@ -23,8 +23,6 @@ radius = 15.0
 [node name="Weapon" type="RigidBody2D"]
 position = Vector2(-91, 0)
 input_pickable = true
-mass = 10.0
-gravity_scale = 3.0
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_qnybf")
